@@ -1,29 +1,46 @@
 <div class="rounded-2xl bg-white p-3 w-full h-20 flex flex-row justify-between items-center shadow">
   <!-- Colonne gauche -->
   <div class="flex flex-col items-start">
-    <div class="px-2 h-7 rounded-lg flex items-center justify-center font-normal text-white bg-[#0B6BBF] text-sm">
-      Available
+    <div class="px-2 h-7 rounded-lg flex items-center justify-center font-normal text-sm"
+         [ngClass]="stateBadgeClass">
+      {{ stateLabel }}
     </div>
-    <span class="text-[0.9rem] text-gray-400 font-semibold mt-1">10/08/2024</span>
+    <span class="text-[0.9rem] text-gray-400 font-semibold mt-1">
+      {{ post.createdAt | date:'dd/MM/yyyy' }}
+    </span>
   </div>
 
   <!-- Colonne centrale -->
   <div class="flex flex-col items-start justify-center">
     <div class="flex flex-row items-center space-x-1">
-      <span class="text-red-500 text-sm">Canada -</span>
-      <span class="text-gray-400 text-sm">3000 CAD</span>
+      <span class="text-red-500 text-sm">{{ post.sourceCountry }} -</span>
+      <span class="text-gray-400 text-sm">
+        {{ post.sourceAmount | number:'1.0-0' }} {{ post.sourceCurrency }}
+      </span>
     </div>
     <div class="flex flex-row items-center space-x-1 mt-1">
-      <i class="pi pi-reply rotate-180  rotate-y-180 text-[#0B6BBF]"></i>
-      <span class="text-[#0B6BBF]  text-[0.7rem] sm:text-sm truncate ">Cameroun - 1 395 000 XAF</span>
+      <!-- Show the transfer arrow only when available -->
+      <i *ngIf="isAvailable" class="pi pi-reply rotate-180 rotate-y-180 text-[#0B6BBF]"></i>
+      <span [class.text-[#0B6BBF]]="isAvailable"
+            [class.text-gray-400]="!isAvailable"
+            class="text-[0.7rem] sm:text-sm truncate">
+        {{ post.targetCountry }} - {{ post.targetAmount | number:'1.0-0' }} {{ post.targetCurrency }}
+      </span>
     </div>
   </div>
 
   <!-- Colonne droite -->
   <div class="flex flex-col gap-2 items-end justify-center">
-    <span class="font-semibold text-gray-600 text-xs truncate">1 CAD = 465 XAF</span>
-    <p-overlay-badge  value="2" class="rounded-full">
-      <i class="pi pi-user text-red-500" style="font-size: 1.2rem"></i>
+    <span class="font-semibold text-gray-600 text-xs truncate">
+      1 {{ post.sourceCurrency }} = {{ post.rate | number:'1.0-4' }} {{ post.targetCurrency }}
+    </span>
+
+    <!-- Applicants badge visible only when count > 0 -->
+    <p-overlay-badge *ngIf="post.applicantsCount > 0" [value]="post.applicantsCount" class="rounded-full">
+      <div class="pi pi-user" [ngClass]="userIconColor" style="font-size: 1.2rem"></div>
     </p-overlay-badge>
+
+    <!-- Optional: fallback icon when no applicants -->
+    <i *ngIf="post.applicantsCount === 0" class="pi pi-user text-gray-300" style="font-size: 1.2rem"></i>
   </div>
 </div>
