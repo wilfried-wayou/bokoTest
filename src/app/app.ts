@@ -11,9 +11,10 @@ import {Card} from 'primeng/card';
 import {Post} from './post/post_model';
 import {PostState} from './post/post_model';
 import {PostComponent} from './post/post';
+import {MenuBar} from './menu-bar/menu-bar';
 @Component({
   selector: 'app-root',
-  imports: [Button ,Header, PostComponent],
+  imports: [Button, Header, PostComponent, MenuBar],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
