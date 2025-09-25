@@ -1,3 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
 @import "primeicons/primeicons.css";
+
+/* Scrollbar globale */
+::-webkit-scrollbar {
+  width: 6px; /* Très fine */
+}
+
+/* Piste (fond) */
+::-webkit-scrollbar-track {
+  background: rgba(240, 240, 240, 0.3); /* gris clair transparent */
+}
+
+/* Pouce (barre déplaçable) */
+::-webkit-scrollbar-thumb {
+  background-color: #ff0000; /* rouge vif */
+  border-radius: 10px; /* bords arrondis */
+  border: 1px solid transparent; /* pour créer un peu d'espace */
+}
+

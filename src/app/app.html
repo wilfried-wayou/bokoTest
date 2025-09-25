@@ -7,16 +7,28 @@
      <div class="ml-2"> FOUND POSTS</div>
     </div>
 
-    <div class="h-2"></div>
+    <div class="h-8"></div>
 
     <section class="flex flex-col w-full  gap-2  overflow-x-hidden overflow-y-auto">
       @for ( post of "sssssssssssssssssssssssssssssssssss"; track $index){
-        <app-post></app-post>
+        <div> </div>
+        @if($index % 5 == 0 && $index != 0){
+          <div class="h-[30rem] w-full p-5 rounded-xl shadow-xl bg-[#0B6BBF] flex flex-col justify-center items-center">
+            <h1 class="text-white text-[0.9rem] font-bold text-center">You can't find a post that suits your need ?</h1>
+            <h1 class="text-white text-[0.9rem] text-center">Don't panic! you can also create your own post and other swappers will be able to contact you</h1>
+          <div class="h-2"></div>
+            <p-button  size="small"  [rounded]="true" label="Create a post" class=" text-blue-400" iconPos="right" severity="secondary"></p-button>
+          </div>
+        } @else {
+          <div class="mr-2"><app-post></app-post></div>
+
+        }
       }
 
 
 
     </section>
+
 
   </section>
 
