@@ -1,17 +1,12 @@
 import {Component, signal, WritableSignal} from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+
 import {Button} from 'primeng/button';
-import {IconField} from 'primeng/iconfield';
-import {Badge} from 'primeng/badge';
-import { BadgeModule } from 'primeng/badge';
-import {OverlayBadge, OverlayBadgeModule} from 'primeng/overlaybadge';
-import {Header} from './header/header';
-import {Chip} from 'primeng/chip';
-import {Card} from 'primeng/card';
-import {Post} from './post/post_model';
-import {PostState} from './post/post_model';
-import {PostComponent} from './post/post';
-import {MenuBar} from './menu-bar/menu-bar';
+import {Header} from './component/header/header';
+
+import {Post} from './component/post/post_model';
+import {PostState} from './component/post/post_model';
+import {PostComponent} from './component/post/post';
+import {MenuBar} from './component/menu-bar/menu-bar';
 import {Dialog} from 'primeng/dialog';
 import {InputText} from 'primeng/inputtext';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
