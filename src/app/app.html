@@ -23,7 +23,7 @@
               <div class="card flex justify-center">
                 <p-button (click)="showDialog()" size="small" [rounded]="true" label="Create a post"
                           class=" text-blue-400" iconPos="right" severity="secondary"></p-button>
-                <p-dialog header="Create Post" [modal]="true" [(visible)]="visible" [style]="{ width: '32rem' }">
+                <p-dialog header="Create Post" [modal]="true" [(visible)]="visible" [style]="{ width: '24.875rem' }">
                   <form [formGroup]="postForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
 
                     <!-- Date (lecture seule, définie à la création) -->
@@ -33,7 +33,7 @@
                     </div>
 
                     <!-- Source -->
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="grid grid-cols-1  gap-4">
                       <div class="flex flex-col">
                         <label class="font-semibold mb-1">Source Country</label>
                         <p-select [options]="countries" optionLabel="label" optionValue="value"
@@ -61,7 +61,7 @@
                     </div>
 
                     <!-- Target -->
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="grid grid-cols-1  gap-4">
                       <div class="flex flex-col">
                         <label class="font-semibold mb-1">Target Country</label>
                         <p-select [options]="countries" optionLabel="label" optionValue="value"
@@ -89,7 +89,7 @@
                     </div>
 
                     <!-- Rate + State -->
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="grid grid-cols-1  gap-4">
                       <div class="flex flex-col">
                         <label class="font-semibold mb-1">Rate</label>
                         <p-inputNumber formControlName="rate" [min]="0" [maxFractionDigits]="6"
@@ -137,106 +137,105 @@
 
 
     </section>
-
-    <app-menu-bar></app-menu-bar>
+<app-menu-bar></app-menu-bar>
   </section>
 
-  <p-dialog [(visible)]="visible" [modal]="true" [style]="{ width: '32rem' }" header="Create Post">
-    <form (ngSubmit)="onSubmit()" [formGroup]="postForm" class="flex flex-col gap-4">
+<!--  <p-dialog [(visible)]="visible" [modal]="true" [style]="{ width: '25.875rem' }" header="Create Post">-->
+<!--    <form (ngSubmit)="onSubmit()" [formGroup]="postForm" class="flex  flex-col gap-4">-->
 
-      <!-- Date (lecture seule, définie à la création) -->
-      <div class="flex items-center gap-4">
-        <label class="font-semibold w-36">Date</label>
-        <input [value]="today | date:'dd/MM/yyyy'" class="flex-auto" pInputText readonly/>
-      </div>
+<!--      &lt;!&ndash; Date (lecture seule, définie à la création) &ndash;&gt;-->
+<!--      <div class="flex items-center gap-4">-->
+<!--        <label class="font-semibold w-36">Date</label>-->
+<!--        <input [value]="today | date:'dd/MM/yyyy'" class="flex-auto" pInputText readonly/>-->
+<!--      </div>-->
 
-      <!-- Source -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div class="flex flex-col">
-          <label class="font-semibold mb-1">Source Country</label>
-          <p-select [options]="countries" formControlName="sourceCountry" optionLabel="label"
-                    optionValue="code" placeholder="Select country"></p-select>
-          @if (hasError('sourceCountry')) {
-            <small class="text-red-500">Required</small>
-          }
-        </div>
-        <div class="flex flex-col">
-          <label class="font-semibold mb-1">Source Amount</label>
-          <p-inputNumber [min]="0" [useGrouping]="true" formControlName="sourceAmount" mode="decimal"></p-inputNumber>
-          @if (hasError('sourceAmount')) {
-            <small class="text-red-500">Required and >= 0</small>
-          })
-        </div>
-        <div class="flex flex-col">
-          <label class="font-semibold mb-1">Source Currency</label>
-          <p-select [options]="currencies" formControlName="sourceCurrency" optionLabel="label"
-                    optionValue="code" placeholder="Select currency"></p-select>
-          @if (hasError('sourceCurrency')) {
-            <small class="text-red-500">Required</small>
-          }
-        </div>
-      </div>
+<!--      &lt;!&ndash; Source &ndash;&gt;-->
+<!--      <div class="grid grid-cols-1  gap-4">-->
+<!--        <div class="flex flex-col">-->
+<!--          <label class="font-semibold mb-1">Source Country</label>-->
+<!--          <p-select [options]="countries" formControlName="sourceCountry" optionLabel="label"-->
+<!--                    optionValue="code" placeholder="Select country"></p-select>-->
+<!--          @if (hasError('sourceCountry')) {-->
+<!--            <small class="text-red-500">Required</small>-->
+<!--          }-->
+<!--        </div>-->
+<!--        <div class="flex flex-col">-->
+<!--          <label class="font-semibold mb-1">Source Amount</label>-->
+<!--          <p-inputNumber [min]="0" [useGrouping]="true" formControlName="sourceAmount" mode="decimal"></p-inputNumber>-->
+<!--          @if (hasError('sourceAmount')) {-->
+<!--            <small class="text-red-500">Required and >= 0</small>-->
+<!--          })-->
+<!--        </div>-->
+<!--        <div class="flex flex-col">-->
+<!--          <label class="font-semibold mb-1">Source Currency</label>-->
+<!--          <p-select [options]="currencies" formControlName="sourceCurrency" optionLabel="label"-->
+<!--                    optionValue="code" placeholder="Select currency"></p-select>-->
+<!--          @if (hasError('sourceCurrency')) {-->
+<!--            <small class="text-red-500">Required</small>-->
+<!--          }-->
+<!--        </div>-->
+<!--      </div>-->
 
-      <!-- Target -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div class="flex flex-col">
-          <label class="font-semibold mb-1">Target Country</label>
-          <p-select [options]="countries" formControlName="targetCountry" optionLabel="label"
-                    optionValue="code" placeholder="Select country"></p-select>
-          @if (hasError('targetCountry')) {
-            <small class="text-red-500">Required</small>
-          }
-        </div>
-        <div class="flex flex-col">
-          <label class="font-semibold mb-1">Target Amount</label>
-          <p-inputNumber [min]="0" [useGrouping]="true" formControlName="targetAmount" mode="decimal"></p-inputNumber>
-          @if (hasError('targetAmount')) {
-            <small class="text-red-500">Required and >= 0</small>
-          }
+<!--      &lt;!&ndash; Target &ndash;&gt;-->
+<!--      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">-->
+<!--        <div class="flex flex-col">-->
+<!--          <label class="font-semibold mb-1">Target Country</label>-->
+<!--          <p-select [options]="countries" formControlName="targetCountry" optionLabel="label"-->
+<!--                    optionValue="code" placeholder="Select country"></p-select>-->
+<!--          @if (hasError('targetCountry')) {-->
+<!--            <small class="text-red-500">Required</small>-->
+<!--          }-->
+<!--        </div>-->
+<!--        <div class="flex flex-col">-->
+<!--          <label class="font-semibold mb-1">Target Amount</label>-->
+<!--          <p-inputNumber [min]="0" [useGrouping]="true" formControlName="targetAmount" mode="decimal"></p-inputNumber>-->
+<!--          @if (hasError('targetAmount')) {-->
+<!--            <small class="text-red-500">Required and >= 0</small>-->
+<!--          }-->
 
-        </div>
-        <div class="flex flex-col">
-          <label class="font-semibold mb-1">Target Currency</label>
-          <p-select [options]="currencies" formControlName="targetCurrency" optionLabel="label"
-                    optionValue="code" placeholder="Select currency"></p-select>
-          @if (hasError('targetCurrency')) {
-            <small class="text-red-500">Required</small>
-          }
-        </div>
-      </div>
+<!--        </div>-->
+<!--        <div class="flex flex-col">-->
+<!--          <label class="font-semibold mb-1">Target Currency</label>-->
+<!--          <p-select [options]="currencies" formControlName="targetCurrency" optionLabel="label"-->
+<!--                    optionValue="code" placeholder="Select currency"></p-select>-->
+<!--          @if (hasError('targetCurrency')) {-->
+<!--            <small class="text-red-500">Required</small>-->
+<!--          }-->
+<!--        </div>-->
+<!--      </div>-->
 
-      <!-- Rate + State -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div class="flex flex-col">
-          <label class="font-semibold mb-1">Rate</label>
-          <p-inputNumber [maxFractionDigits]="6" [min]="0" formControlName="rate" mode="decimal"></p-inputNumber>
-          @if (hasError('rate')) {
-            <small class="text-red-500">Required and >= 0</small>
-          }
-        </div>
-        <div class="flex flex-col">
-          <label class="font-semibold mb-1">State</label>
-          <p-select [options]="postStates" formControlName="state" optionLabel="label" optionValue="value"
-                    placeholder="Select state"></p-select>
-          @if (hasError('state')) {
-            <small class="text-red-500">Required</small>
-          }
-        </div>
-        <div class="flex flex-col">
-          <label class="font-semibold mb-1">Applicants</label>
-          <p-inputNumber [min]="0" [useGrouping]="false" formControlName="applicantsCount"></p-inputNumber>
-          @if (hasError('applicantsCount')) {
-            <small class="text-red-500">Required and >= 0</small>
-          }
-        </div>
-      </div>
+<!--      &lt;!&ndash; Rate + State &ndash;&gt;-->
+<!--      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">-->
+<!--        <div class="flex flex-col">-->
+<!--          <label class="font-semibold mb-1">Rate</label>-->
+<!--          <p-inputNumber [maxFractionDigits]="6" [min]="0" formControlName="rate" mode="decimal"></p-inputNumber>-->
+<!--          @if (hasError('rate')) {-->
+<!--            <small class="text-red-500">Required and >= 0</small>-->
+<!--          }-->
+<!--        </div>-->
+<!--        <div class="flex flex-col">-->
+<!--          <label class="font-semibold mb-1">State</label>-->
+<!--          <p-select [options]="postStates" formControlName="state" optionLabel="label" optionValue="value"-->
+<!--                    placeholder="Select state"></p-select>-->
+<!--          @if (hasError('state')) {-->
+<!--            <small class="text-red-500">Required</small>-->
+<!--          }-->
+<!--        </div>-->
+<!--        <div class="flex flex-col">-->
+<!--          <label class="font-semibold mb-1">Applicants</label>-->
+<!--          <p-inputNumber [min]="0" [useGrouping]="false" formControlName="applicantsCount"></p-inputNumber>-->
+<!--          @if (hasError('applicantsCount')) {-->
+<!--            <small class="text-red-500">Required and >= 0</small>-->
+<!--          }-->
+<!--        </div>-->
+<!--      </div>-->
 
-      <!-- Actions -->
-      <div class="flex justify-end gap-2 pt-4">
-        <p-button (click)="onCancel()" label="Cancel" severity="secondary" type="button"/>
-        <p-button [disabled]="postForm.invalid" label="Create" type="submit"/>
-      </div>
-    </form>
-  </p-dialog>
+<!--      &lt;!&ndash; Actions &ndash;&gt;-->
+<!--      <div class="flex justify-end gap-2 pt-4">-->
+<!--        <p-button (click)="onCancel()" label="Cancel" severity="secondary" type="button"/>-->
+<!--        <p-button [disabled]="postForm.invalid" label="Create" type="submit"/>-->
+<!--      </div>-->
+<!--    </form>-->
+<!--  </p-dialog>-->
 
 </section>
