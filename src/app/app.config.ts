@@ -7,6 +7,7 @@ import {provideAnimationsAsync} from '@angular/platform-browser/animations/async
 import Aura from '@primeuix/themes/aura';
 import {MyPreset} from '../custumPreset';
 export const appConfig: ApplicationConfig = {
+
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideAnimationsAsync(),
