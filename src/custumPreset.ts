@@ -3,6 +3,7 @@ import Aura from '@primeuix/themes/aura';
 
 export const MyPreset = definePreset(Aura, {
   semantic: {
+
     primary: {
       50: '{red.50}',
       100: '{red.100}',
