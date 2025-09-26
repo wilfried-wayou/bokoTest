@@ -1,8 +1,8 @@
 <div class="rounded-2xl bg-white p-3 w-full h-20 flex flex-row justify-between items-center shadow">
   <!-- Colonne gauche -->
   <div class="flex flex-col items-start">
-    <div class="px-2 h-7 rounded-lg flex items-center justify-center font-normal text-sm"
-         [ngClass]="stateBadgeClass">
+    <div [ngClass]="stateBadgeClass"
+         class="px-2 h-7 rounded-lg flex items-center justify-center font-normal text-sm">
       {{ stateLabel }}
     </div>
     <span class="text-[0.9rem] text-gray-400 font-semibold mt-1">
@@ -20,8 +20,8 @@
     </div>
     <div class="flex flex-row items-center space-x-1 mt-1">
       <!-- Show the transfer arrow only when available -->
-      @if (isAvailable){
-        <i  class="pi pi-reply rotate-180 rotate-y-180 text-[#0B6BBF]"></i>
+      @if (isAvailable) {
+        <i class="pi pi-reply rotate-180 rotate-y-180 text-[#0B6BBF]"></i>
 
       }
       <span [class.text-[#0B6BBF]]="isAvailable"
@@ -40,7 +40,7 @@
 
     <!-- Applicants badge visible only when count > 0 -->
     <p-overlay-badge *ngIf="post.applicantsCount > 0" [value]="post.applicantsCount" class="rounded-full">
-      <div class="pi pi-user" [ngClass]="userIconColor" style="font-size: 1.2rem"></div>
+      <div [ngClass]="userIconColor" class="pi pi-user" style="font-size: 1.2rem"></div>
     </p-overlay-badge>
 
     <!-- Optional: fallback icon when no applicants -->
