@@ -1,0 +1,23 @@
+<section class="flex flex-col ">
+  <app-header></app-header>
+  <section class="flex flex-col w-full h-[88dvh] rounded-t-4xl bg-gray-100 p-5 overflow-hidden">
+    <div class="text-lg font-semibold text-gray-600 flex flex-row items-center">
+      <i class="pi pi-chevron-left" style="font-size: 1rem"></i>
+      <div class="w-1"></div>
+     <div class="ml-2"> FOUND POSTS</div>
+    </div>
+
+    <div class="h-2"></div>
+
+    <section class="flex flex-col w-full  gap-2  overflow-x-hidden overflow-y-auto">
+      @for ( post of "sssssssssssssssssssssssssssssssssss"; track $index){
+        <app-post></app-post>
+      }
+
+
+
+    </section>
+
+  </section>
+
+</section>
