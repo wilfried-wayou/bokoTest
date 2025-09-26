@@ -20,7 +20,10 @@
     </div>
     <div class="flex flex-row items-center space-x-1 mt-1">
       <!-- Show the transfer arrow only when available -->
-      <i *ngIf="isAvailable" class="pi pi-reply rotate-180 rotate-y-180 text-[#0B6BBF]"></i>
+      @if (isAvailable){
+        <i  class="pi pi-reply rotate-180 rotate-y-180 text-[#0B6BBF]"></i>
+
+      }
       <span [class.text-[#0B6BBF]]="isAvailable"
             [class.text-gray-400]="!isAvailable"
             class="text-[0.7rem] sm:text-sm truncate">
