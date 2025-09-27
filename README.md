@@ -90,6 +90,8 @@ npm test
 npm run build
 ```
 
+6) Prod Link : https://boko-test-9l8j.vercel.app/
+
 
 Scripts npm usuels
 - start: lance le serveur de développement Angular
